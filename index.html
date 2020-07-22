@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Titre</title>
+
+</head>
+
+<body>
+
+
+
+
+    <div class="drawTablee"
+        style="background:url('2020-03-23-17_05_26-Window.png');width:645px; height:673px;margin-right: auto;margin-left: auto;">
+        <div class="forTd"
+            style="height: 442px; width: 460px;display: flex;flex-wrap: wrap;top: 215px;left: 75px;position: relative;">
+        </div>
+    </div>
+
+
+    <script>
+        jQuery(document).ready(function ($) {
+
+
+            // METTRE ICI LES INFORMATIONS DES POCHETTES
+            let arr = {
+                "grid0": "pochette0",
+                "grid1": "pochette1",
+                "grid2": "pochette2",
+                "grid3": "pochette3",
+                "grid4": "pochette4",
+                "grid5": "pochette5",
+                "grid6": "pochette6",
+                "grid7": "pochette7",
+                "grid8": "pochette8",
+                "grid9": "pochette9",
+                "grid10": "pochette10",
+                "grid11": "pochette11",
+                "grid12": "pochette12",
+                "grid13": "pochette13",
+                "grid14": "pochette14",
+                "grid15": "pochette15",
+                "grid16": "pochette16",
+                "grid17": "pochette17",
+                "grid18": "pochette18",
+                "grid19": "pochette19",
+                "grid20": "pochette20",
+                "grid21": "pochette21",
+                "grid22": "pochette22",
+                "grid23": "pochette23",
+                "grid24": "pochette24",
+                "grid25": "pochette25",
+                "grid26": "pochette26",
+                "grid27": "pochette27",
+                "grid28": "pochette28",
+                "grid29": "pochette29",
+                "grid30": "pochette30",
+                "grid31": "pochette31",
+                "grid32": "pochette32",
+                "grid33": "pochette33",
+                "grid34": "pochette34",
+                "grid35": "pochette35"
+            };
+
+
+            //PAS TOUCHER SCRIPT
+            let imageTooltip = $('.imageTooltip')
+            let DisplayInfo = $('.DisplayInfo')
+            let DisplayInfoDiv = $('.DisplayInfoDiv')
+            let drawTables = $('.drawTablee')
+            let gridLink = $('.grid-link')
+            let forTd = $('.forTd')
+
+            let gridsize = 6;
+            var currentId = "";
+
+            //Formatage de la grille
+            $('.forTd').each(function () {
+                var linkheight = (forTd.innerHeight() / gridsize) - 1;
+                var linkwidth = (forTd.innerWidth() / gridsize) - 1;
+                for (var i = 0; i < gridsize * gridsize; i++) {
+                    currentId = "grid" + i;
+                    $('.forTd').append(
+                        '<td class="grid-link" style="border: 1px solid red; position: relative; height:' +
+                        linkheight + 'px;width:' + linkwidth + 'px;" id="' + currentId + '"></td>');
+                }
+            })
+
+
+
+            //Gestion du tooltip
+            $('.grid-link').click(function (e) {
+                var target = $(this)[0].id
+                for (let key in arr) {
+                    var value = arr[key];
+                    if (key === target) {
+                        DisplayInfo.html(value)
+                    };
+                }
+            })
+
+
+
+        });
+    </script>
+
+</body>
+
+
+
+</html>
